@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --ar-font: "IBM Plex Sans Arabic", sans-serif;
+  --en-font: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: var(--ar-font);
+}
+
+.alerta-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4); /* اللون الغامق */
+}
+
+.alerta-ar {
+  direction: rtl !important;
+  font-family: var(--ar-font) !important;
+}
+
+.alerta-en {
+  direction: ltr !important;
+  font-family: var(--en-font) !important;
+}
+
+.alerta {
+  width: 510px;
+  height: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.alerta .alerta-icon {
+  width: 100px;
+}
+
+.d-none {
+  display: none;
+}
+
+.alerta h1 {
+  margin: 0;
+  color: #1e1e1e;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.alerta p {
+  color: rgba(30, 30, 30, 0.7);
+  margin: 0;
+  margin-top: 20px;
+  width: 80%;
+  text-align: center;
+}
+
+.alerta .button {
+  width: 194px;
+  height: 50px;
+  background-color: #5e80fa;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.alerta .button.close {
+  background-color: #6e7881;
+}
+
+.alerta .button.deny {
+  background-color: #dc3741;
+}
+
+.alerta .button.close:hover {
+  background-color: #606a74;
+}
+
+.alerta .button.deny:hover {
+  background-color: #b52831;
+}
+
+.alerta .button:hover {
+  background-color: #395fe9;
+}
+
+.alerta .buttons-container {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #395fe9;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 40px;
+  width: 150px;
+  text-decoration: none;
+}
