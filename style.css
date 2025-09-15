@@ -3,6 +3,10 @@
 :root {
   --ar-font: "IBM Plex Sans Arabic", sans-serif;
   --en-font: "Montserrat", sans-serif;
+
+  --alerta-confirm-btn-color: #5e80fa;
+  --alerta-cancel-btn-color: #6e7881;
+  --alerta-deny-btn-color: #dc3741;
 }
 
 body {
@@ -68,7 +72,7 @@ body {
 .alerta .button {
   width: 194px;
   height: 50px;
-  background-color: #5e80fa;
+  background-color: var(--alerta-confirm-btn-color);
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -80,24 +84,12 @@ body {
   font-weight: 600;
 }
 
-.alerta .button.close {
-  background-color: #6e7881;
+.alerta .button.cancel {
+  background-color: var(--alerta-cancel-btn-color);
 }
 
 .alerta .button.deny {
-  background-color: #dc3741;
-}
-
-.alerta .button.close:hover {
-  background-color: #606a74;
-}
-
-.alerta .button.deny:hover {
-  background-color: #b52831;
-}
-
-.alerta .button:hover {
-  background-color: #395fe9;
+  background-color: var(--alerta-deny-btn-color);
 }
 
 .alerta .buttons-container {

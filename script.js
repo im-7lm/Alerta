@@ -5,8 +5,11 @@ const Alerta = {
     title,
     text,
     confirmButtonText,
-    closeButtonText,
+    cancelButtonText,
     denyButtonText,
+    confirmButtonColor,
+    cancelButtonColor,
+    denyButtonColor,
     language = "en",
     onConfirm,
     onCancel,
@@ -14,14 +17,16 @@ const Alerta = {
     onShow,
     showIcon = true,
     showConfirmButton = true,
-    showCloseButton = false,
+    showCancelButton = false,
     showDenyButton = false,
     closeOnOutsideClick = true,
     textSelection = true,
+    backgroundBlur = false,
   }) {
     // Create Alert Elements
     const container = document.createElement("div");
     container.className = "alerta-container";
+    container.id = "alerta-container";
 
     const alerta = document.createElement("div");
     alerta.className = `alerta alert-${
@@ -74,18 +79,28 @@ const Alerta = {
       confirmBtn.innerHTML =
         confirmButtonText || (language === "ar" ? "تأكيد" : "Confirm");
 
+      // Confirm Button Color
+      if (confirmButtonColor) {
+        confirmBtn.style.backgroundColor = confirmButtonColor;
+      }
+
       confirmBtn.onclick = () => closeAlert("confirm");
       btnContainer.appendChild(confirmBtn);
     }
 
-    // Close Button
-    if (showCloseButton) {
+    // Cancel Button
+    if (showCancelButton) {
       const closeBtn = document.createElement("a");
-      closeBtn.className = "button close";
+      closeBtn.className = "button cancel";
       closeBtn.innerHTML =
-        closeButtonText || (language === "ar" ? "إلغاء" : "Cancel");
+        cancelButtonText || (language === "ar" ? "إلغاء" : "Cancel");
 
-      closeBtn.onclick = () => closeAlert("close");
+      // Cancel Button Color
+      if (cancelButtonColor) {
+        closeBtn.style.backgroundColor = cancelButtonColor;
+      }
+
+      closeBtn.onclick = () => closeAlert("cancel");
       btnContainer.appendChild(closeBtn);
     }
 
@@ -95,6 +110,11 @@ const Alerta = {
       denyBtn.className = "button deny";
       denyBtn.innerHTML =
         denyButtonText || (language === "ar" ? "رفض" : "Deny");
+
+      // Deny Button Color
+      if (denyButtonColor) {
+        denyBtn.style.backgroundColor = denyButtonColor;
+      }
 
       denyBtn.onclick = () => closeAlert("deny");
       btnContainer.appendChild(denyBtn);
@@ -122,6 +142,19 @@ const Alerta = {
       alert.setAttribute("style", "user-select:none !important");
     }
 
+    // Background Blur
+
+    if (backgroundBlur) {
+      let blurValue = "5px"; // default
+      if (
+        typeof backgroundBlur === "string" ||
+        typeof backgroundBlur === "number"
+      ) {
+        blurValue = backgroundBlur;
+      }
+      container.style.backdropFilter = `blur(${blurValue})`;
+    }
+
     // Close Alert Function
     function closeAlert(action) {
       alerta.classList.remove("animate__bounceIn");
@@ -142,7 +175,7 @@ const Alerta = {
 
     // onShow
     alerta.addEventListener(
-      "animationend",
+      "animationstart",
       () => {
         if (onShow) onShow();
       },
@@ -165,10 +198,13 @@ button.addEventListener("click", () => {
     text: "حدث خطأ الرجاء المحاولة مرة اخرى",
     language: "ar",
     showIcon: true,
-    confirmButtonText: "بسيبيبي",
-    showCloseButton: false,
-    closeButtonText: "fdsfsd",
+    showCancelButton: false,
     showDenyButton: true,
     closeOnOutsideClick: false,
+    backgroundBlur: false,
+
+    onDeny: function () {
+      console.log("test");
+    },
   });
 });
