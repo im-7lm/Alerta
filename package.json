@@ -1,6 +1,6 @@
 {
   "name": "alerta2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Alerta — Elegant, animated, and fully customizable JS alerts with zero dependencies. Lightweight, responsive, and easy to integrate.",
   "main": "dist/index.js",
   "files": [
