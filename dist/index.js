@@ -1,7 +1,7 @@
 (function loadCSS() {
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "./style.css";
+  link.href = new URL("./style.css", import.meta.url).href;
   document.head.appendChild(link);
 })();
 
@@ -52,12 +52,27 @@ const Alerta = {
     if (showIcon) {
       const icon = document.createElement("img");
       icon.className = "alerta-icon";
-      if (type === "success") icon.src = "icons/success.svg";
-      else if (type === "error") icon.src = "icons/error.svg";
-      else if (type === "info") icon.src = "icons/info.svg";
-      else if (type === "warning") icon.src = "icons/warning.svg";
-      else if (type === "question") icon.src = "icons/question.svg";
-      else icon.src = "icons/success.svg"; // Default
+
+      switch (type) {
+        case "success":
+          icon.src = "icons/success.svg";
+          break;
+        case "error":
+          icon.src = "icons/error.svg";
+          break;
+        case "info":
+          icon.src = "icons/info.svg";
+          break;
+        case "warning":
+          icon.src = "icons/warning.svg";
+          break;
+        case "question":
+          icon.src = "icons/question.svg";
+          break;
+        default:
+          icon.src = "icons/success.svg";
+      }
+
       alerta.appendChild(icon);
     }
 
