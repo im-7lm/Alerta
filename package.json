@@ -1,0 +1,34 @@
+{
+  "name": "alerta2",
+  "version": "1.0.0",
+  "description": "Alerta — Elegant, animated, and fully customizable JS alerts with zero dependencies. Lightweight, responsive, and easy to integrate.",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/im-7lm/Alerta.git"
+  },
+  "keywords": [
+    "alert",
+    "Alerta",
+    "popup",
+    "notification",
+    "modal",
+    "prompt",
+    "confirm",
+    "toast",
+    "responsive",
+    "custom"
+  ],
+  "author": "Ahmed Magdi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/im-7lm/Alerta/issues"
+  },
+  "homepage": "https://github.com/im-7lm/Alerta#readme"
+}

@@ -183,24 +183,3 @@ const Alerta = {
     );
   },
 };
-
-const button = document.querySelector(".show");
-
-button.addEventListener("click", () => {
-  Alerta.alert({
-    type: "error",
-    title: "حدث خطأ",
-    text: "حدث خطأ الرجاء المحاولة مرة اخرى",
-    language: "ar",
-    showIcon: true,
-    showCancelButton: false,
-    showDenyButton: true,
-    closeOnOutsideClick: false,
-    backgroundBlur: false,
-    backgroundBlur: false,
-
-    onDeny: function () {
-      console.log("test");
-    },
-  });
-});
